@@ -10,6 +10,7 @@ public class CompruebaIdentificador {
      * @return
      */
     static boolean comprobarLongitud(String id) {
+
         return id.length() >= 5 && id.length() <= 15;
     }
 
@@ -35,6 +36,7 @@ public class CompruebaIdentificador {
      * @return
      */
     static boolean guionesCorrectos(String id) {
+
         return !id.startsWith("-") && !id.endsWith("-");
     }
 
@@ -45,7 +47,14 @@ public class CompruebaIdentificador {
      * @return
      */
     static boolean caracterAlfabetico(String id) {
-        return isLetter(id.charAt(0));
+        // recorremos el id, y en cuanto encontramos una letra decimos true y salimos
+        for (int i = 0; i < id.length(); i++) {
+            Character c = id.charAt(i);
+            if (Character.isLetter(c)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
