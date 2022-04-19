@@ -10,7 +10,7 @@ public class CompruebaIdentificador {
      * @return
      */
     static boolean comprobarLongitud(String id) {
-        return id.length() <= 5 && id.length() >= 15;
+        return id.length() >= 5 && id.length() <= 15;
     }
 
 
@@ -54,7 +54,8 @@ public class CompruebaIdentificador {
      * @return
      */
     static boolean comprobarPalabraReservada(String id) {
-        String reservadas = "abstract, continue, for, new, switch, assert, default, goto, package, synchronized, boolean, do, if, private, this, break, double, implements, protected, throw, byte, else, import, public, thows, case, enum, instanceof, return, transient, catch, extends, int, short, try, char, final, interface, static, void, class, finally, long, strictfp, volatile, const, float, native, super, while";
+        String reservadas = "abstract, continue, for, new, switch, assert, default, goto, package, synchronized, boolean, do, if, private, this, break, double, implements, protected, throw, byte, else, import, public, thows, case, enum, instanceof, return, transient, catch, extends, int, short, try, char, final, interface, static, void, class, finally, long, strictfp, volatile, const, float, native, super, while, integer";
+        reservadas = reservadas.replace(" ", ""); // quitamos todos los espacios en blanco
         String[] palabrasReservadas = reservadas.split(",");
         for (int i = 0; i < palabrasReservadas.length; i++) {
             if (palabrasReservadas[i].equals(id)) {
